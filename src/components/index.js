@@ -73,6 +73,17 @@ class RoomsContainer extends Component {
   componentDidMount(){
     this.fetchRooms()
   }
+  handleOnClick(room){
+    socket.emit("unsubscribe")
+    socket.emit("subscribe", { room: room.title})
+    this.props.joinRoom(room)
+  }
+
+  handleNewRoom(ev) {
+    ev.preventDefault()
+    this.props.newRoom(this.state.input)
+    this.setState({input: ''})
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps(ChatContainer)
