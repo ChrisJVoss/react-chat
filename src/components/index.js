@@ -84,6 +84,26 @@ class RoomsContainer extends Component {
     this.props.newRoom(this.state.input)
     this.setState({input: ''})
   }
+  handleOnChange(ev) {
+    this.setState({input: ev.target.value})
+  }
+
+  fetchRooms(){
+    if (!this.state.connected) {
+      this.props.fetchRoomList()
+      this.state.connected = true
+    }
+  }
+
+  render() {
+    const rooms = this.props.rooms.map((room) => {
+    debugger
+      return (
+        <ListGroupItem key={room.title} onClick={this.handleOnClick.bind(null, room)}>
+          {room.title}
+        </ListGroupItem>
+      )
+    })
 }
 
 export default connect(mapStateToProps, mapDispatchToProps(ChatContainer)
