@@ -57,4 +57,22 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ newMessage: messagesActions.newMessage}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps(ChatContainer)  
+class RoomsContainer extends Component {
+  constructor(props){
+    super()
+    this.state = {
+      input: '',
+      connected: false
+    }
+    this.handleOnClick = this.handleOnClick.bind(this)
+    this.handleNewRoom = this.handleNewRoom.bind(this)
+    this.handleOnChange = this.handleOnChange.bind(this)
+    this.fetchRooms = this.fetchRooms.bind(this)
+  }
+
+  componentDidMount(){
+    this.fetchRooms()
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps(ChatContainer)
