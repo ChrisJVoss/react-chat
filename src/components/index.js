@@ -104,6 +104,19 @@ class RoomsContainer extends Component {
         </ListGroupItem>
       )
     })
+
+    return (
+     <div>
+       <Col xs={4} mdPull={1}>
+         <ListGroup>
+           {rooms}
+           <NewRoom handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
+         </ListGroup>
+       </Col>
+     </div>
+   )
+
+ }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps(ChatContainer)
