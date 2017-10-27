@@ -10,3 +10,16 @@ export default {
     'webpack-hot-middleware/client?reload=true',
     './src/index'
   ],
+  target: 'web',
+  output: {
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  devServer: {
+    contentBase: './src'
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
