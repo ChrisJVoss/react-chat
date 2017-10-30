@@ -180,3 +180,9 @@ class Board extends React.Component {
     );
   }
 }
+
+function distribute(nodes, workload) {
+  const answer = []
+  for (let i = 0; i < Math.floor(workload / nodes); i++) {
+    answer[i] = []
+  }
