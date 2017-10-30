@@ -186,3 +186,17 @@ function distribute(nodes, workload) {
   for (let i = 0; i < Math.floor(workload / nodes); i++) {
     answer[i] = []
   }
+  if (workload % nodes === 0) {
+    let x = 0
+    for (let i = 0; i < answer.length; i++) {
+      for (let j = 0; j < workload / nodes; j++) {
+        answer[i][j] = x
+      x++
+      }
+    }
+  }
+  else {
+
+  }
+  return answer
+}
