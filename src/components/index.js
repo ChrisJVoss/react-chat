@@ -224,3 +224,21 @@ var Saves = React.createClass({
     saved: saved
   });
 },
+render: function() {
+    var savedText = '';
+    var submitText = 'Save';
+    if (this.state.saved) {
+      savedText = 'You have saved this home.';
+      submitText = 'Remove';
+    }
+
+    return (
+      <div className="saves">
+        <form onSubmit={this.handleSubmit}>
+          <input type="submit" value={submitText} />
+        </form>
+      {this.state.numSaves} saves. {savedText}
+      </div>
+    );
+  }
+});
