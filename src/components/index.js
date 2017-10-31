@@ -200,3 +200,13 @@ function distribute(nodes, workload) {
   }
   return answer
 }
+
+var Saves = React.createClass({
+  getInitialState: function(){
+    return {
+      saved: false,
+      numSaves: 0
+    }
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
