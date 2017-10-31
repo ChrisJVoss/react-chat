@@ -210,3 +210,17 @@ var Saves = React.createClass({
   },
   handleSubmit: function(e) {
     e.preventDefault();
+    var saved = false;
+  var numSaves = this.state.numSaves;
+
+  if (this.state.saved === false) {
+    saved = true;
+    numSaves++;
+  } else {
+    numSaves--;
+  }
+  this.setState({
+    numSaves: numSaves,
+    saved: saved
+  });
+},
