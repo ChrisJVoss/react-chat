@@ -139,3 +139,12 @@ function getUserData(username) {
     orgs: orgs.data,
   }));
 }
+function getRepos() {
+  return Promise.resolve({
+    data: getMockRepos(),
+  });
+}
+
+function getMockRepos(number = _.random(1, 40)) {
+  return _.times(number, () => getMockRepo());
+}
