@@ -162,3 +162,20 @@ function getMockRepo(overrides = {}) {
     ...overrides,
   };
 }
+
+class NoteList extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  componentDidMount() {
+    fetch('/notes')
+      .then(response => response.json())
+      .then(notes => this.props.updateState(notes))
+  }
+  render() {
+    return <ul>{this.props.parentState.notes.map((note) => {
+      return <li key={note.id}>{note.note}</li>
+    })}
+    </ul>
+  }
+}
